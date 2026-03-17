@@ -35,9 +35,9 @@ public class App {
     static double nanoToMilli = 1.0/1_000_000;
 
     /**
-     * Código de teste 1. Este método...
+     * Código de teste 1. Este método calcula o somatório do resto da divisão por dois de cada elemento do vetor cujo índice é par.
      * @param vetor Vetor com dados para teste.
-     * @return Uma resposta que significa....
+     * @return Uma resposta que significa o somatório resultante.
      */
     static int codigo1(int[] vetor) {
         int resposta = 0;
@@ -66,7 +66,7 @@ public class App {
     }
 
     /**
-     * Código de teste 3. Este método...
+     * Código de teste 3. Este método ordena um vetor utilizando a ordenação por seleção.
      * @param vetor Vetor com dados para teste.
      */
     static void codigo3(int[] vetor) {
@@ -84,9 +84,9 @@ public class App {
     }
 
     /**
-     * Código de teste 4 (recursivo). Este método...
+     * Código de teste 4 (recursivo). Este método calcula o elemento n da sequência Fibonacci.
      * @param n Ponto inicial do algoritmo
-     * @return Um inteiro que significa...
+     * @return Um inteiro que significa o valor do elemento n da sequência.
      */
     static int codigo4(int n) {
         operacoes++;
@@ -133,7 +133,7 @@ public class App {
                     break;
                 case 4:
                     limpar();
-                    statsCodigo3();
+                    statsCodigo4();
                     break;
                 case 0:
                     System.out.println("Encerrando...");
@@ -158,9 +158,9 @@ public class App {
 
             long tempoFinal = System.nanoTime();
             long diferencaTempo = tempoFinal - tempoInicial;
-            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+            double tempoGastoEmMS = diferencaTempo * nanoToMilli;
 
-            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %.5f ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
         }
     }
 
@@ -175,9 +175,9 @@ public class App {
 
             long tempoFinal = System.nanoTime();
             long diferencaTempo = tempoFinal - tempoInicial;
-            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+            double tempoGastoEmMS = diferencaTempo * nanoToMilli;
 
-            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %.5f ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
         }
     }
 
@@ -192,9 +192,9 @@ public class App {
 
             long tempoFinal = System.nanoTime();
             long diferencaTempo = tempoFinal - tempoInicial;
-            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+            double tempoGastoEmMS = diferencaTempo * nanoToMilli;
 
-            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %.5f ms\n\n", (i + 1), tamanhosTesteMedio[i], operacoes, tempoGastoEmMS);
         }
     }
 
@@ -207,9 +207,9 @@ public class App {
 
             long tempoFinal = System.nanoTime();
             long diferencaTempo = tempoFinal - tempoInicial;
-            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+            double tempoGastoEmMS = diferencaTempo * nanoToMilli;
 
-            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+            System.out.printf("======= EXECUÇÃO %d =======\n* Quantidade de elementos: %d\n* Quantidade de operações: %d\n* Tempo gasto: %.5f ms\n\n", (i + 1), tamanhosTestePequeno[i], operacoes, tempoGastoEmMS);
         }
     }
 
