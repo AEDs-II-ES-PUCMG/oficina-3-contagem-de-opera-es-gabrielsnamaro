@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 /** 
  * MIT License
@@ -42,6 +43,7 @@ public class App {
         int resposta = 0;
         for (int i = 0; i < vetor.length; i += 2) {
             resposta += vetor[i]%2;
+            operacoes++;
         }
         return resposta;
     }
@@ -55,6 +57,7 @@ public class App {
         int contador = 0;
         for (int k = (vetor.length - 1); k > 0; k /= 2) {
             for (int i = 0; i <= k; i++) {
+                operacoes++;
                 contador++;
             }
 
@@ -70,6 +73,7 @@ public class App {
         for (int i = 0; i < vetor.length - 1; i++) {
             int menor = i;
             for (int j = i + 1; j < vetor.length; j++) {
+                operacoes++;
                 if (vetor[j] < vetor[menor])
                     menor = j;
             }
@@ -85,6 +89,7 @@ public class App {
      * @return Um inteiro que significa...
      */
     static int codigo4(int n) {
+        operacoes++;
         if (n <= 2)
             return 1;
         else
@@ -105,6 +110,110 @@ public class App {
         
     }
     public static void main(String[] args) {
-        
+        int opcao = -1;
+        Scanner teclado = new Scanner(System.in);
+
+        do {
+
+            System.err.print("* Escolha o teste: ");
+            opcao = Integer.parseInt(teclado.nextLine());
+
+            switch(opcao) {
+                case 1:
+                    limpar();
+                    statsCodigo1();
+                    break;
+                case 2:
+                    limpar();
+                    statsCodigo2();
+                    break;
+                case 3:
+                    limpar();
+                    statsCodigo3();
+                    break;
+                case 4:
+                    limpar();
+                    statsCodigo3();
+                    break;
+                case 0:
+                    System.out.println("Encerrando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+
+        } while(opcao != 0);
+
+        teclado.close();
+    }
+
+    static void statsCodigo1() {
+        for(int i = 0; i < 5; i++) {
+            int[] vetor = gerarVetor(tamanhosTesteGrande[i]);
+
+            long tempoInicial = System.nanoTime();
+
+            operacoes = 0;
+            codigo1(vetor);
+
+            long tempoFinal = System.nanoTime();
+            long diferencaTempo = tempoFinal - tempoInicial;
+            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+        }
+    }
+
+    static void statsCodigo2() {
+        for(int i = 0; i < 5; i++) {
+            int[] vetor = gerarVetor(tamanhosTesteGrande[i]);
+
+            long tempoInicial = System.nanoTime();
+
+            operacoes = 0;
+            codigo2(vetor);
+
+            long tempoFinal = System.nanoTime();
+            long diferencaTempo = tempoFinal - tempoInicial;
+            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+        }
+    }
+
+    static void statsCodigo3() {
+        for(int i = 0; i < 5; i++) {
+            int[] vetor = gerarVetor(tamanhosTesteMedio[i]);
+
+            long tempoInicial = System.nanoTime();
+
+            operacoes = 0;
+            codigo3(vetor);
+
+            long tempoFinal = System.nanoTime();
+            long diferencaTempo = tempoFinal - tempoInicial;
+            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+        }
+    }
+
+    static void statsCodigo4() {
+        for(int i = 0; i < 5; i++) {
+            long tempoInicial = System.nanoTime();
+
+            operacoes = 0;
+            codigo4(tamanhosTestePequeno[i]);
+
+            long tempoFinal = System.nanoTime();
+            long diferencaTempo = tempoFinal - tempoInicial;
+            long tempoGastoEmMS = (long)(diferencaTempo * nanoToMilli);
+
+            System.out.printf("======= EXECUÇÃO %d =======\n* Tamanho do vetor: %d\n* Quantidade de operações: %d\n* Tempo gasto: %d ms\n\n", (i + 1), tamanhosTesteGrande[i], operacoes, tempoGastoEmMS);
+        }
+    }
+
+    static void limpar() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 }
